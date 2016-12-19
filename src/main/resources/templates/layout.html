@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot Web Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!--<link rel="icon" href="../../favicon.ico"/>-->
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" media="screen"
+          href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+    <link rel="stylesheet" media="screen"
+          href="../static/css/style.css"
+          th:href="@{/css/style.css}" />
+    <link rel="stylesheet" media="screen"
+          href="../static/css/sticky-footer-navbar.css"
+          th:href="@{/css/sticky-footer-navbar.css}" />
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<!--<nav class="navbar navbar-default navbar-fixed-top">-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">Demo App</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li th:classappend="${currentPage == 'list'} ? 'active'"><a href="#" th:href="@{/posts}">List</a></li>
+                <li th:classappend="${currentPage == 'new'} ? 'active'"><a href="#" th:href="@{/posts/new}">New</a></li>
+                <li><a href="https://junlapong.github.io">Github</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+
+    </div>
+</nav>
+
+<div class="container">
+
+    <div layout:fragment="content">
+        <!-- ============================================================================ -->
+        <!-- This content is only used for static prototyping purposes (natural templates)-->
+        <!-- and is therefore entirely optional.                                          -->
+        <!-- ============================================================================ -->
+        <h1>Static content for prototyping purposes only</h1>
+
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+            Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+            Phasellus et placerat elit.
+        </p>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+<footer class="footer">
+    <div class="container text-center">
+        <p class="text-muted">&copy; 2016 Footer</p>
+    </div>
+</footer>
+
+<script src="http://cdn.jsdelivr.net/webjars/jquery/1.12.4/jquery.min.js"
+        th:src="@{/webjars/jquery/1.12.4/jquery.min.js}"></script>
+<script src="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7/js/bootstrap.min.js"
+        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="http://cdn.jsdelivr.net/webjars/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/webjars/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</body>
+</html>
