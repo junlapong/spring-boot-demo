@@ -13,19 +13,20 @@ import org.slf4j.LoggerFactory;
 @Component
 public class PostLoader implements ApplicationListener<ContextRefreshedEvent> {
 
-    private static final Logger log = LoggerFactory.getLogger(PostLoader.class);
+	private static final Logger log = LoggerFactory.getLogger(PostLoader.class);
 
-    private PostRepository repository;
+	private PostRepository repository;
 
-    @Autowired
-    public void setPostRepository(PostRepository repository) {
-        this.repository = repository;
-    }
+	@Autowired
+	public void setPostRepository(PostRepository repository) {
+		this.repository = repository;
+	}
 
-    @Override
-    public void onApplicationEvent(ContextRefreshedEvent event) {
-        for (int i = 1; i <= 10; i++) {
-            repository.save(new Post("My post number #" + (i)));
-        }
-    }
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		for (int i = 1; i <= 10; i++) {
+			log.debug("add data #{}", i);
+			repository.save(new Post("My post number #" + (i)));
+		}
+	}
 }
