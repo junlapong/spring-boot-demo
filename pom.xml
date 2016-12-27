@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.2.RELEASE</version>
+        <version>1.4.3.RELEASE</version>
     </parent>
 
     <properties>
@@ -57,7 +57,7 @@
             <artifactId>nekohtml</artifactId>
             <version>1.9.22</version>
         </dependency>
-<!-- 
+<!--
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>html5shiv</artifactId>
@@ -74,10 +74,60 @@
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+			<plugin>
+				<groupId>org.lesscss</groupId>
+				<artifactId>lesscss-maven-plugin</artifactId>
+				<version>1.7.0.1.1</version>
+				<configuration>
+					<sourceDirectory>${project.basedir}/src/main/less</sourceDirectory>
+					<outputDirectory>${project.build.directory}/classes/static/css</outputDirectory>
+					<compress>true</compress>
+					<includes>
+						<include>**.less</include>
+					</includes>					
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+                <groupId>com.samaxes.maven</groupId>
+                <artifactId>minify-maven-plugin</artifactId>
+                <version>1.7.6</version>
+                <executions>
+                    <execution>
+                        <id>default-minify</id>
+                        <goals>
+                            <goal>minify</goal>
+                        </goals>
+                        <configuration>
+                            <webappSourceDir>${project.basedir}/src/main/resources</webappSourceDir>
+                            <webappTargetDir>${project.build.directory}/classes</webappTargetDir>
+							<nosuffix>true</nosuffix>
+                            <cssSourceDir>static/css</cssSourceDir>
+                            <cssSourceIncludes>
+                                <cssSourceInclude>**.css</cssSourceInclude>
+                            </cssSourceIncludes>
+                            <jsSourceDir>static/js</jsSourceDir>
+                            <jsSourceIncludes>
+                                <jsSourceInclude>**.js</jsSourceInclude>
+                            </jsSourceIncludes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
