@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.4.3.RELEASE</version>
+        <version>RELEASE</version>
     </parent>
 
     <properties>
@@ -39,6 +39,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+        <dependency>
+            <groupId>net.sourceforge.nekohtml</groupId>
+            <artifactId>nekohtml</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -62,12 +66,14 @@
             <artifactId>bootstrap</artifactId>
             <version>3.3.7</version>
         </dependency>
-
-        <dependency>
-            <groupId>net.sourceforge.nekohtml</groupId>
-            <artifactId>nekohtml</artifactId>
-        </dependency>
 <!--
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>Semantic-UI</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>html5shiv</artifactId>
@@ -123,7 +129,7 @@
                 <artifactId>lesscss-maven-plugin</artifactId>
                 <version>1.7.0.1.1</version>
                 <configuration>
-                    <sourceDirectory>${project.basedir}/src/main/less</sourceDirectory>
+                    <sourceDirectory>${project.basedir}/src/main/resources/less</sourceDirectory>
                     <outputDirectory>${project.build.directory}/classes/static/css</outputDirectory>
                     <compress>true</compress>
                     <includes>
@@ -158,12 +164,10 @@
                             <skipMerge>true</skipMerge>
                             <nosuffix>true</nosuffix>
                             <cssSourceDir>static/css</cssSourceDir>
-                            <!-- <cssTargetDir>static/css/minified</cssTargetDir> -->
                             <cssSourceIncludes>
                                 <cssSourceInclude>*.css</cssSourceInclude>
                             </cssSourceIncludes>
                             <jsSourceDir>static/js</jsSourceDir>
-                            <!-- <jsTargetDir>static/js/minified</jsTargetDir> -->
                             <jsSourceIncludes>
                                 <jsSourceInclude>*.js</jsSourceInclude>
                             </jsSourceIncludes>
